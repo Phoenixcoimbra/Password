@@ -88,25 +88,29 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-// Function to prompt user for password options
 function getPasswordOptions() {
-  var characterCount = 0; // Add the missing variable declaration
-  prompt('How many characters would you like your password to contain?');
-  //condition if the character count is less than 8 or more than 128, repeat prompt until valid
-  var characterCount = prompt('Password must be between 8 and 128 characters');
+  var characterCount = prompt('How many characters would you like your password to contain?');
+  
   while (characterCount < 8 || characterCount > 128) {
-    characterCount = alert('Password must be between 8 and 128 characters');
-    prompt('How many characters would you like your password to contain?');
-  } if (characterCount >= 8 && characterCount <= 128) {
+    alert('Password must be between 8 and 128 characters');
+    characterCount = prompt('How many characters would you like your password to contain?');
+  } 
 
-    var characterCount = prompt('How many characters would you like your password to contain?');
-    confirm('Click OK to confirm including special characters.'); 
-    confirm('Click OK to confirm including numeric characters.');
-    confirm('Click OK to confirm including lowercase characters.');
-    confirm('Click OK to confirm including uppercase characters.');
+  if (characterCount >= 8 && characterCount <= 128) {
+    var includeSpecial = confirm('Click OK to confirm including special characters.'); 
+    var includeNumeric = confirm('Click OK to confirm including numeric characters.');
+    var includeLowercase = confirm('Click OK to confirm including lowercase characters.');
+    var includeUppercase = confirm('Click OK to confirm including uppercase characters.');
 
-      
-    }
+    return {
+      characterCount: characterCount,
+      includeSpecial: includeSpecial,
+      includeNumeric: includeNumeric,
+      includeLowercase: includeLowercase,
+      includeUppercase: includeUppercase
+    };
+  }
+}
 
   //condition if the character count is less than 8 or more than 128, repeat prompt until valid
   // var characterCount = prompt('Password must be between 8 and 128 characters');  
@@ -151,7 +155,7 @@ var randomPassword = randomSpecial + randomNumeric + randomLower + randomUpper;
   return randomPasswordString;
 }
 
-// Function to generate password with user input
+//Function to generate password with user input
 function generatePassword() {
   var randomSpecial = specialCharacters[getRandom(specialCharacters)];
   var randomNumeric = numericCharacters[getRandom(numericCharacters)];
@@ -191,5 +195,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
-console.log(password);
+getPasswordOptions();
+generatePassword();
 
