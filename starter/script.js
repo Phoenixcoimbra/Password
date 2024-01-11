@@ -147,13 +147,11 @@ var randomPassword = randomSpecial + randomNumeric + randomLower + randomUpper;
   //shuffles the array
   randomPasswordArray.sort(function () {
     return 0.5 - Math.random();
-  }
-  );
-  //joins the array into a single string
-  var randomPasswordString = randomPasswordArray.join('');
-  //returns the string
-  return randomPasswordString;
-}
+  });
+
+
+
+
 
 //Function to generate password with user input
 function generatePassword() {
