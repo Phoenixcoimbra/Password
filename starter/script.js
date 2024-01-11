@@ -126,12 +126,16 @@ function getPasswordOptions() {
 // Function for getting a random element from an array
 function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
-  //collects a random character from each array
-  var randomSpecial = specialCharacters[getRandom(specialCharacters)];
-  var randomNumeric = numericCharacters[getRandom(numericCharacters)];
-  var randomLower = lowerCasedCharacters[getRandom(lowerCasedCharacters)];
-  var randomUpper = upperCasedCharacters[getRandom(upperCasedCharacters)];
-  var randomPassword = randomSpecial + randomNumeric + randomLower + randomUpper;
+  return arr[randomIndex];
+}
+
+//collects a random character from each array
+var randomSpecial = getRandom(specialCharacters);
+var randomNumeric = getRandom(numericCharacters);
+var randomLower = getRandom(lowerCasedCharacters);
+var randomUpper = getRandom(upperCasedCharacters);
+
+var randomPassword = randomSpecial + randomNumeric + randomLower + randomUpper;
 
 
   //collects the random characters into a single array
@@ -187,5 +191,5 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   passwordText.value = password;
 }
+console.log(password);
 
-}
