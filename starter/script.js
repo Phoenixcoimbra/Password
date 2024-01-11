@@ -100,7 +100,11 @@ function getPasswordOptions() {
   } if (characterCount >= 8 && characterCount <= 128) {
 
     var characterCount = prompt('How many characters would you like your password to contain?');
-     
+    confirm('Click OK to confirm including special characters.'); 
+    confirm('Click OK to confirm including numeric characters.');
+    confirm('Click OK to confirm including lowercase characters.');
+    confirm('Click OK to confirm including uppercase characters.');
+
       
     }
 
@@ -163,15 +167,25 @@ function generatePassword() {
 // Get references to the #generate element and add event listener to generate button
 var generateBtn = document.querySelector('#generate');
 generateBtn.addEventListener('click', writePassword);
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
+
+// Get references to the #generate element and add event listener to generate button
+var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", writePassword);
 
 
 
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();  
-  var passwordText = document.querySelector('#password');
-     passwordText.value = password;
-
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+  passwordText.value = password;
 }
+
 }
