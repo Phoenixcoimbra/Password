@@ -99,13 +99,11 @@ function getPasswordOptions() {
     prompt('How many characters would you like your password to contain?');
   } if (characterCount >= 8 && characterCount <= 128) {
 
-    var characterCount = 0; // Add the missing variable declaration
-  prompt('How many characters would you like your password to contain?');
+    var characterCount = prompt('How many characters would you like your password to contain?');
      
       
     }
 
-  
   //condition if the character count is less than 8 or more than 128, repeat prompt until valid
   // var characterCount = prompt('Password must be between 8 and 128 characters');  
   // if (characterCount < 8 || characterCount > 128) {
@@ -147,9 +145,20 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  var randomSpecial = specialCharacters[getRandom(specialCharacters)];
+  var randomNumeric = numericCharacters[getRandom(numericCharacters)];
+  var randomLower = lowerCasedCharacters[getRandom(lowerCasedCharacters)];
+  var randomUpper = upperCasedCharacters[getRandom(upperCasedCharacters)];
+  var randomPassword = randomSpecial + randomNumeric + randomLower + randomUpper;
 
-   
- }
+  var randomPasswordArray = randomPassword.split('');
+  randomPasswordArray.sort(function () {
+    return 0.5 - Math.random();
+  });
+
+  var randomPasswordString = randomPasswordArray.join('');
+  return randomPasswordString;
+}
 
 // Get references to the #generate element and add event listener to generate button
 var generateBtn = document.querySelector('#generate');
@@ -164,4 +173,5 @@ function writePassword() {
   var passwordText = document.querySelector('#password');
      passwordText.value = password;
 
+}
 }
