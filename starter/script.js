@@ -112,21 +112,6 @@ function getPasswordOptions() {
   }
 }
 
-  //condition if the character count is less than 8 or more than 128, repeat prompt until valid
-  // var characterCount = prompt('Password must be between 8 and 128 characters');  
-  // if (characterCount < 8 || characterCount > 128) {
-  //   characterCount = alert('Password must be between 8 and 128 characters');
-  //   prompt('How many characters would you like your password to contain?');
-  // }
-  //   (characterCount >= 8 && characterCount <= 128) {
-
-
-//   confirm('Click OK to confirm including special characters.');
-//   confirm('Click OK to confirm including numeric characters.');
-//   confirm('Click OK to confirm including lowercase characters.');
-//   confirm('Click OK to confirm including uppercase characters.');
-// }
-
 // Function for getting a random element from an array
 function getRandom(arr) {
   var randomIndex = Math.floor(Math.random() * arr.length);
